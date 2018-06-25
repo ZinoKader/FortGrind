@@ -16,7 +16,6 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 640, 640));
         primaryStage.setResizable(false);
         primaryStage.show();
-        System.out.println("Fortnite Running: " + WinProcess.isProcessRunning("FortniteClient"));
     }
 
 

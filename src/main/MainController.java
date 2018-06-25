@@ -1,5 +1,8 @@
 package main;
 
+import com.sun.jna.platform.win32.GDI32;
+import com.sun.jna.platform.win32.User32;
+import com.sun.jna.platform.win32.WinDef;
 import constants.WinConstants;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -43,6 +46,9 @@ public class MainController implements Initializable {
         runButton.setOnAction(event -> {
             if (WinProcess.isProcessRunning(WinConstants.FORTNITE_PROCESS_NAME)) {
                 appLog.addEntry("Fortnite process found, starting bot...");
+                appLog.addEntry(String.valueOf(WinProcess.getProcessId(WinConstants.FORTNITE_PROCESS_NAME, WinConstants.FORTNITE_PROCESS_BATTLEYE_NAME)));
+                //WinDef.HDC hdcWindow = User32.INSTANCE.GetDC(hWnd);
+                //WinDef.HDC hdcMemDC = GDI32.INSTANCE.CreateCompatibleDC(hdcWindow);
             }
             else {
                 appLog.addEntry("Fortnite process not found, please start Fortnite");
